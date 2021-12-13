@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+        function printWeekDay() {
+
+            /* Create a date object */
+
+            var date = new Date();
+            console.log(date)
+
+            /* Create an array of week name */
+
+            var week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            // console.log(week[date.getDay()]);
+            document.write(week[date.getDay()])
+
+
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <button onclick="printWeekDay() ">Day Of Week</button>
+</body>
+
+</html>

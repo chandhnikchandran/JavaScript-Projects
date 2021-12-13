@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word and Character Counter with JavaScript</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: poppins;
+    }
+    
+     ::selection {
+        color: white;
+        background: #4169e1;
+    }
+    
+    body {
+        display: flex;
+        font-family: poppins;
+        justify-content: center;
+        align-items: center;
+        background-color: #4169e1;
+        color: black;
+        height: 600px;
+    }
+    
+    .container {
+        background-color: white;
+        width: 50%;
+        border-radius: 10px;
+        padding: 36px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    
+    .input-container {
+        position: relative;
+        font-size: 1rem;
+        margin-bottom: 15px;
+        display: block;
+    }
+    
+    .input {
+        padding: 13px 15px;
+        border-radius: 8px;
+        border: 2px solid #4169e1;
+        outline: 0;
+        width: 100%;
+    }
+    
+    .label {
+        position: absolute;
+        top: -7px;
+        left: 10px;
+        color: #4169e1;
+        font-size: 0.85rem;
+        padding-right: 0.33rem;
+        padding-left: 0.33rem;
+        background: #fff;
+        transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        text-transform: capitalize;
+    }
+    
+    textarea {
+        min-height: 6em;
+        max-height: 50vh;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <label class="input-container">
+         <textarea class="input" id="word-count-input"></textarea>
+         <span class="label">Enter your Message:</span>
+        </label>
+        <p><strong><span id="word-count">0</span> words</strong> | <strong><span id="character-count">0</span> characters</strong></p>
+    </div>
+
+    <script>
+        var countTarget = document.querySelector("#word-count-input");
+        // console.log(countTarget)
+        var wordCount = document.querySelector("#word-count");
+        var characterCount = document.querySelector("#character-count");
+        var count = function() {
+            var characters = countTarget.value;
+            // console.log(characters)
+            var characterLength = characters.length;
+            var words = characters.split(/[\n\r\s]+/g).filter(function(word) {
+                return word.length > 0;
+            });
+            wordCount.innerHTML = words.length;
+            characterCount.innerHTML = characterLength;
+        };
+        count();
+        window.addEventListener(
+            "input",
+            function(event) {
+                if (event.target.matches("#word-count-input")) {
+                    count();
+                }
+            },
+            false
+        );
+    </script>
+
+</html>
